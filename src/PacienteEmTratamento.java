@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PacienteEmTratamento {
-    private static List<Paciente> listaDePacientes = new ArrayList<>();
+    public static List<Paciente> listaDePacientes = new ArrayList<>();
 
     public static void listar() {
         for (int i = 0; i < listaDePacientes.size(); i++) {

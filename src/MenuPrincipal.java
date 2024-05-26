@@ -1,12 +1,11 @@
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class MenuPrincipal {
     private static Scanner scanner = new Scanner(System.in);
-    private static List<Paciente> listaDePacientes = new ArrayList<>();
 
     public static void main(String[] args) {
+
         int opcao;
         do {
             exibirMenu();
@@ -53,33 +52,40 @@ public class MenuPrincipal {
     }
 
     private static void cadastrarPaciente() {
-        System.out.println("------ Cadastro de Paciente ------");
-        System.out.print("Nome: ");
+        System.out.println("------ Cadastro de Novo Paciente ------");
+        System.out.print("Nome do Paciente: ");
         String nome = scanner.nextLine();
-        System.out.print("Idade: ");
+
+        System.out.print("Idade do Paciente: ");
         int idade = scanner.nextInt();
-        System.out.print("Peso: ");
+
+        System.out.print("Peso do Paciente (em kg): ");
         double peso = scanner.nextDouble();
-        System.out.print("Altura: ");
+
+        System.out.print("Altura do Paciente (em metros): ");
         double altura = scanner.nextDouble();
-        System.out.print("Pressão Arterial: ");
+
+        System.out.print("Pressão Arterial do Paciente: ");
         double pressaoArterial = scanner.nextDouble();
-        System.out.print("Frequência Cardíaca: ");
+
+        System.out.print("Frequência Cardíaca do Paciente: ");
         double frequenciaCardiaca = scanner.nextDouble();
+
         scanner.nextLine(); // Limpar o buffer
-        System.out.print("Dieta Alimentar: ");
+        System.out.print("Dieta Alimentar do Paciente: ");
         String dietaAlimentar = scanner.nextLine();
-        List<String> atividadesFisicas = new ArrayList<>();
-        listaDePacientes.add(new Paciente(nome, idade, peso, altura, pressaoArterial, frequenciaCardiaca, dietaAlimentar, atividadesFisicas));
+
+        PacienteEmTratamento.adicionar(new Paciente(nome, idade, peso, altura, pressaoArterial, frequenciaCardiaca, dietaAlimentar, new ArrayList<>()));
         System.out.println("Paciente cadastrado com sucesso!");
     }
+
 
     private static void alterarPaciente() {
         System.out.println("------ Alteração de Paciente ------");
         PacienteEmTratamento.listar();
         System.out.print("Digite o ID do paciente que deseja alterar: ");
         int id = scanner.nextInt();
-        if (id >= 0 && id < listaDePacientes.size()) {
+        if (id >= 0 && id < PacienteEmTratamento.listaDePacientes.size()) {
             scanner.nextLine(); // Limpar o buffer
             System.out.print("Novo nome: ");
             String nome = scanner.nextLine();
@@ -96,26 +102,26 @@ public class MenuPrincipal {
             scanner.nextLine(); // Limpar o buffer
             System.out.print("Nova dieta alimentar: ");
             String dietaAlimentar = scanner.nextLine();
-            Paciente novoPaciente = new Paciente(nome, idade, listaDePacientes.get(id).peso, listaDePacientes.get(id).altura,
-                    listaDePacientes.get(id).pressaoArterial, listaDePacientes.get(id).frequenciaCardiaca,
-                    listaDePacientes.get(id).dietaAlimentar, listaDePacientes.get(id).atividadesFisicas);
+            Paciente novoPaciente = new Paciente(nome, idade, peso, altura, pressaoArterial, frequenciaCardiaca, dietaAlimentar, PacienteEmTratamento.buscarPorId(id).atividadesFisicas);
             PacienteEmTratamento.alterar(id, novoPaciente);
         } else {
             System.out.println("ID de paciente inválido.");
         }
     }
 
+
     private static void exibirInfoPaciente() {
         System.out.println("------ Informações de Paciente ------");
         PacienteEmTratamento.listar();
         System.out.print("Digite o ID do paciente que deseja visualizar: ");
         int id = scanner.nextInt();
-        if (id >= 0 && id < listaDePacientes.size()) {
-            System.out.println(listaDePacientes.get(id));
+        if (id >= 0 && id < PacienteEmTratamento.listaDePacientes.size()) {
+            System.out.println(PacienteEmTratamento.buscarPorId(id));
         } else {
             System.out.println("ID de paciente inválido.");
         }
     }
+
 
     private static void registrarAtividadeFisica() {
         System.out.println("------ Registro de Atividade Física ------");
@@ -123,22 +129,23 @@ public class MenuPrincipal {
         System.out.print("Digite o ID do paciente que realizou a atividade física: ");
         int id = scanner.nextInt();
         scanner.nextLine(); // Limpar o buffer
-        if (id >= 0 && id < listaDePacientes.size()) {
+        if (id >= 0 && id < PacienteEmTratamento.listaDePacientes.size()) {
             System.out.print("Atividade Física realizada: ");
             String atividade = scanner.nextLine();
-            listaDePacientes.get(id).registrarAtividadeFisica(atividade);
-            System.out.println("Atividade física registrada com sucesso para o paciente " + listaDePacientes.get(id).nome);
+            PacienteEmTratamento.buscarPorId(id).registrarAtividadeFisica(atividade);
+            System.out.println("Atividade física registrada com sucesso para o paciente " + PacienteEmTratamento.buscarPorId(id).nome);
         } else {
             System.out.println("ID de paciente inválido.");
         }
     }
+
 
     private static void removerPaciente() {
         System.out.println("------ Remoção de Paciente ------");
         PacienteEmTratamento.listar();
         System.out.print("Digite o ID do paciente que deseja remover: ");
         int id = scanner.nextInt();
-        if (id >= 0 && id < listaDePacientes.size()) {
+        if (id >= 0 && id < PacienteEmTratamento.listaDePacientes.size()) {
             PacienteEmTratamento.remover(id);
         } else {
             System.out.println("ID de paciente inválido.");
