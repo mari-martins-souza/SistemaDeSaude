@@ -36,4 +36,26 @@ public class Paciente {
                 ", atividadesFisicas=" + atividadesFisicas +
                 '}';
     }
+
+    public double calcularIMC() {
+        return peso / (altura * altura);
+    }
+
+    public String monitorarPaciente() {
+        return "Paciente{" +
+                "nome='" + nome + '\'' +
+                ", idade=" + idade +
+                ", peso=" + peso +
+                ", altura=" + altura +
+                ", pressaoArterial=" + pressaoArterial +
+                ", frequenciaCardiaca=" + frequenciaCardiaca +
+                ", dietaAlimentar='" + dietaAlimentar + '\'' +
+                ", atividadesFisicas=" + atividadesFisicas +
+                ", IMC=" + calcularIMC() +
+                '}';
+    }
+
+    public void registrarAtividadeFisica(String atividade) {
+        atividadesFisicas.add(atividade);
+    }
 }
