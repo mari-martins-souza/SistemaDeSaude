@@ -12,8 +12,7 @@ public class Paciente {
 
     public Paciente(String nome, int idade, double peso, double altura,
                     double pressaoArterial, double frequenciaCardiaca,
-                    String dietaAlimentar, List<String> atividadesFisicas)
-    {
+                    String dietaAlimentar, List<String> atividadesFisicas) {
         this.nome = nome;
         this.idade = idade;
         this.peso = peso;
@@ -22,5 +21,19 @@ public class Paciente {
         this.frequenciaCardiaca = frequenciaCardiaca;
         this.dietaAlimentar = dietaAlimentar;
         this.atividadesFisicas = atividadesFisicas;
+    }
+
+    @Override
+    public String toString() {
+        return "Paciente{" +
+                "nome='" + nome + '\'' +
+                ", idade=" + idade +
+                ", peso=" + peso +
+                ", altura=" + altura +
+                ", pressaoArterial=" + pressaoArterial +
+                ", frequenciaCardiaca=" + frequenciaCardiaca +
+                ", dietaAlimentar='" + dietaAlimentar + '\'' +
+                ", atividadesFisicas=" + atividadesFisicas +
+                '}';
     }
 }
