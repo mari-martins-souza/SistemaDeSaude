@@ -5,8 +5,9 @@ public class PacienteEmTratamento {
     public static List<Paciente> listaDePacientes = new ArrayList<>();
 
     public static void listar() {
+        System.out.println("Lista de Pacientes:");
         for (int i = 0; i < listaDePacientes.size(); i++) {
-            System.out.println("ID: " + i + " - " + listaDePacientes.get(i));
+            System.out.println((i + 1) + " - " + listaDePacientes.get(i).nome + ";");
         }
     }
 
