@@ -34,12 +34,18 @@ public class PacienteEmTratamento {
         }
     }
 
-    public static void alterar(int id, Paciente novoPaciente) {
+    public static void alterar(int id, double novoPeso, double novaAltura, double novaPressaoArterial, double novaFrequenciaCardiaca, String novaDietaAlimentar) {
         if (id >= 0 && id < listaDePacientes.size()) {
-            listaDePacientes.set(id, novoPaciente);
-            System.out.println("Paciente alterado com sucesso.");
+            Paciente paciente = listaDePacientes.get(id);
+            paciente.peso = novoPeso;
+            paciente.altura = novaAltura;
+            paciente.pressaoArterial = novaPressaoArterial;
+            paciente.frequenciaCardiaca = novaFrequenciaCardiaca;
+            paciente.dietaAlimentar = novaDietaAlimentar;
+            System.out.println("Informações do paciente alteradas com sucesso.");
         } else {
             System.out.println("Paciente não encontrado.");
         }
     }
+
 }
