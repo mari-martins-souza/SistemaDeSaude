@@ -1,3 +1,5 @@
+package entidades;
+
 import java.util.List;
 
 public class Paciente {
@@ -28,7 +30,7 @@ public class Paciente {
 
     @Override
     public String toString() {
-        return "Paciente{" +
+        return "entidades.Paciente{" +
                 "nome='" + nome + '\'' +
                 ", idade=" + idade +
                 ", peso=" + peso +
@@ -53,7 +55,7 @@ public class Paciente {
     }
 
     public String monitorarPaciente() {
-        return "Paciente{" +
+        return "entidades.Paciente{" +
                 "nome='" + nome + '\'' +
                 ", idade=" + idade +
                 ", peso=" + peso +

@@ -1,3 +1,8 @@
+package telas;
+
+import entidades.Paciente;
+import repositorio.PacienteEmTratamento;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -111,7 +116,7 @@ public class MenuPrincipal {
             System.out.println("Digite a nova dieta alimentar do paciente:");
             pacienteExistente.dietaAlimentar = scanner.nextLine();
         } else {
-            System.out.println("Paciente não encontrado.");
+            System.out.println("entidades.Paciente não encontrado.");
         }
     }
 
@@ -124,7 +129,7 @@ public class MenuPrincipal {
         if (paciente != null) {
             System.out.println(paciente.monitorarPaciente());
         } else {
-            System.out.println("Paciente não encontrado.");
+            System.out.println("entidades.Paciente não encontrado.");
         }
     }
 
@@ -140,7 +145,7 @@ public class MenuPrincipal {
         if (paciente != null) {
             paciente.registrarAtividadeFisica(atividade);
         } else {
-            System.out.println("Paciente não encontrado.");
+            System.out.println("entidades.Paciente não encontrado.");
         }
     }
 
@@ -148,7 +153,7 @@ public class MenuPrincipal {
         System.out.println("Digite o ID do paciente que deseja remover:");
         int id = scanner.nextInt();
         PacienteEmTratamento.remover(id);
-        System.out.println("Paciente removido com sucesso");
+        System.out.println("entidades.Paciente removido com sucesso");
     }
 
 
