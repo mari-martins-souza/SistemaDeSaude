@@ -81,7 +81,11 @@ public class MenuPrincipal {
     }
 
     private static void listarPacientes() {
-        PacienteEmTratamento.listar();
+        if (PacienteEmTratamento.temPacientes()) {
+            PacienteEmTratamento.listar();
+        } else {
+            System.out.println("Não há pacientes cadastrados.");
+        }
     }
 
     private static void alterarPaciente() {
@@ -144,6 +148,7 @@ public class MenuPrincipal {
         System.out.println("Digite o ID do paciente que deseja remover:");
         int id = scanner.nextInt();
         PacienteEmTratamento.remover(id);
+        System.out.println("Paciente removido com sucesso");
     }
 
 

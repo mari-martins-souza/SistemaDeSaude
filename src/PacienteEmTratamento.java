@@ -40,4 +40,9 @@ public class PacienteEmTratamento {
             pacientes.add(pacienteAlterado);
         }
     }
+
+    public static boolean temPacientes() {
+        return !pacientes.isEmpty();
+    }
+
 }
