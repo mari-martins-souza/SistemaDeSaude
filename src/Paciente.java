@@ -1,7 +1,9 @@
 import java.util.List;
 
 public class Paciente {
+    private static int proximoId = 1;
     public String nome;
+    public int id;
     public int idade;
     public double peso;
     public double altura;
@@ -13,6 +15,7 @@ public class Paciente {
     public Paciente(String nome, int idade, double peso, double altura,
                     double pressaoArterial, double frequenciaCardiaca,
                     String dietaAlimentar, List<String> atividadesFisicas) {
+        this.id = proximoId++;
         this.nome = nome;
         this.idade = idade;
         this.peso = peso;
@@ -35,6 +38,14 @@ public class Paciente {
                 ", dietaAlimentar='" + dietaAlimentar + '\'' +
                 ", atividadesFisicas=" + atividadesFisicas +
                 '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
     }
 
     public double calcularIMC() {
