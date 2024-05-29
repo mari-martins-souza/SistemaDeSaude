@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class MenuPrincipal {
     private static Scanner scanner = new Scanner(System.in);
@@ -73,7 +74,7 @@ public class MenuPrincipal {
 
         System.out.println("Digite as atividades físicas do paciente (separadas por vírgula):");
         String atividadesFisicasString = scanner.nextLine();
-        List<String> atividadesFisicas = Arrays.asList(atividadesFisicasString.split(","));
+        List<String> atividadesFisicas = new ArrayList<>(Arrays.asList(atividadesFisicasString.split(",")));
 
         Paciente novoPaciente = new Paciente(nome, idade, peso, altura, pressaoArterial, frequenciaCardiaca, dietaAlimentar, atividadesFisicas);
         PacienteEmTratamento.adicionar(novoPaciente);
@@ -109,8 +110,6 @@ public class MenuPrincipal {
             System.out.println("Paciente não encontrado.");
         }
     }
-
-
 
 
     private static void mostrarPaciente() {
