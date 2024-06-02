@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PacienteEmTratamento {
-    public static List<Paciente> pacientes = new ArrayList<>();
+    private static List<Paciente> pacientes = new ArrayList<>();
+
+    public static List<Paciente> getPacientes() { return pacientes; }
 
     public static void listar() {
         for (Paciente paciente : pacientes) {
