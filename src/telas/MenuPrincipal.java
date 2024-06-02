@@ -100,21 +100,27 @@ public class MenuPrincipal {
 
         if (pacienteExistente != null) {
             System.out.println("Digite o novo peso do paciente:");
-            pacienteExistente.peso = scanner.nextDouble();
+            double novoPeso = scanner.nextDouble();
+            pacienteExistente.setPeso(novoPeso);
 
             System.out.println("Digite a nova altura do paciente:");
-            pacienteExistente.altura = scanner.nextDouble();
+            double novaAltura = scanner.nextDouble();
+            pacienteExistente.setAltura(novaAltura);
 
             System.out.println("Digite a nova pressão arterial do paciente:");
-            pacienteExistente.pressaoArterial = scanner.nextDouble();
+            double novaPressaoArterial = scanner.nextDouble();
+            pacienteExistente.setPressaoArterial(novaPressaoArterial);
 
             System.out.println("Digite a nova frequência cardíaca do paciente:");
-            pacienteExistente.frequenciaCardiaca = scanner.nextDouble();
+            double novaFrequenciaCardiaca = scanner.nextDouble();
+            pacienteExistente.setFrequenciaCardiaca(novaFrequenciaCardiaca);
 
             scanner.nextLine();  // consome a linha restante
 
             System.out.println("Digite a nova dieta alimentar do paciente:");
-            pacienteExistente.dietaAlimentar = scanner.nextLine();
+            String novaDietaAlimentar = scanner.nextLine();
+            pacienteExistente.setDietaAlimentar(novaDietaAlimentar);
+
         } else {
             System.out.println("entidades.Paciente não encontrado.");
         }
