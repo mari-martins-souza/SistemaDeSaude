@@ -49,4 +49,8 @@ public class Nutricionista extends Funcionario {
         this.certificacoes.add(certificacao);
     }
 
+    public void incrementarNumeroDeConsultas() {
+        this.numeroDeConsultas += 1;
+    }
+
 }
