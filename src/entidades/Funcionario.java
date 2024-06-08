@@ -1,5 +1,8 @@
 package entidades;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Funcionario {
     private String nome;
     private int idade;
@@ -18,10 +21,6 @@ public class Funcionario {
 
     public String getNome() {
         return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public int getIdade() {
@@ -46,5 +45,16 @@ public class Funcionario {
 
     public void setSalario(double salario) {
         this.salario = salario;
+    }
+
+    private static List<String> nomesUsados = new ArrayList<>();
+
+    public void setNome(String nome) {
+        if (nomesUsados.contains(nome)) {
+            throw new IllegalArgumentException("Nome já está em uso");
+        } else {
+            this.nome = nome;
+            nomesUsados.add(nome);
+        }
     }
 }
