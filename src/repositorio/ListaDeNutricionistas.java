@@ -16,12 +16,17 @@ public class ListaDeNutricionistas {
         nutricionistas.add(nutricionista);
     }
 
-    public static Nutricionista buscarPorNome(String nome) {
+    public static Nutricionista buscarPorId(int id) {
         for (Nutricionista nutricionista : nutricionistas) {
-            if (nutricionista.getNome().equals(nome)) {
+            if (nutricionista.getId() == id) {
                 return nutricionista;
             }
         }
         return null;
     }
+
+    public static void remover(Nutricionista nutricionista) {
+        nutricionistas.remove(nutricionista);
+    }
+
 }

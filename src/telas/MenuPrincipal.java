@@ -1,7 +1,7 @@
 package telas;
 
 import entidades.Paciente;
-import repositorio.PacienteEmTratamento;
+import repositorio.ListaDePacientes;
 
 import java.util.Arrays;
 import java.util.List;
@@ -82,12 +82,12 @@ public class MenuPrincipal {
         List<String> atividadesFisicas = new ArrayList<>(Arrays.asList(atividadesFisicasString.split(",")));
 
         Paciente novoPaciente = new Paciente(nome, idade, peso, altura, pressaoArterial, frequenciaCardiaca, dietaAlimentar, atividadesFisicas);
-        PacienteEmTratamento.adicionar(novoPaciente);
+        ListaDePacientes.adicionar(novoPaciente);
     }
 
     private static void listarPacientes() {
-        if (PacienteEmTratamento.temPacientes()) {
-            PacienteEmTratamento.listar();
+        if (ListaDePacientes.temPacientes()) {
+            ListaDePacientes.listar();
         } else {
             System.out.println("Não há pacientes cadastrados.");
         }
@@ -96,7 +96,7 @@ public class MenuPrincipal {
     private static void alterarPaciente() {
         System.out.println("Digite o ID do paciente que deseja alterar:");
         int id = scanner.nextInt();
-        Paciente pacienteExistente = PacienteEmTratamento.buscarPorId(id);
+        Paciente pacienteExistente = ListaDePacientes.buscarPorId(id);
 
         if (pacienteExistente != null) {
             System.out.println("Digite o novo peso do paciente:");
@@ -130,7 +130,7 @@ public class MenuPrincipal {
     private static void mostrarPaciente() {
         System.out.println("Digite o ID do paciente que deseja visualizar:");
         int id = scanner.nextInt();
-        Paciente paciente = PacienteEmTratamento.buscarPorId(id);
+        Paciente paciente = ListaDePacientes.buscarPorId(id);
 
         if (paciente != null) {
             System.out.println(paciente.monitorarPaciente());
@@ -147,7 +147,7 @@ public class MenuPrincipal {
         System.out.println("Digite a atividade física:");
         String atividade = scanner.nextLine();
 
-        Paciente paciente = PacienteEmTratamento.buscarPorId(id);
+        Paciente paciente = ListaDePacientes.buscarPorId(id);
         if (paciente != null) {
             paciente.registrarAtividadeFisica(atividade);
         } else {
@@ -158,7 +158,7 @@ public class MenuPrincipal {
     private static void removerPaciente() {
         System.out.println("Digite o ID do paciente que deseja remover:");
         int id = scanner.nextInt();
-        PacienteEmTratamento.remover(id);
+        ListaDePacientes.remover(id);
         System.out.println("entidades.Paciente removido com sucesso");
     }
 

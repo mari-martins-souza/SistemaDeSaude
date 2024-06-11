@@ -4,10 +4,13 @@ import java.util.List;
 
 public class Nutricionista extends Funcionario {
     private List<String> certificacoes;
+    private static int nextId = 1;
+    private int id;
     private int numeroDeConsultas;
     private int tempoDeExperiencia;
 
     public Nutricionista() {
+        this.id = nextId++;
     }
 
     public Nutricionista(String nome, int idade, Endereco endereco, double salario, List<String> certificacoes, int numeroDeConsultas, int tempoDeExperiencia) {
@@ -15,6 +18,7 @@ public class Nutricionista extends Funcionario {
         this.certificacoes = certificacoes;
         this.numeroDeConsultas = numeroDeConsultas;
         this.tempoDeExperiencia = tempoDeExperiencia;
+        this.id = nextId++;
     }
 
     public List<String> getCertificacoes() {
