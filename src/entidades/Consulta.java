@@ -3,16 +3,23 @@ package entidades;
 import java.time.LocalDateTime;
 
 public class Consulta {
+    private static int proximoId = 1;
+    private int id;
     private String nomeNutricionista;
     private String nomePaciente;
     private LocalDateTime dataHora;
     private boolean consultaRealizada;
 
     public Consulta(String nomeNutricionista, String nomePaciente, LocalDateTime dataHora) {
+        this.id = proximoId++;
         this.nomeNutricionista = nomeNutricionista;
         this.nomePaciente = nomePaciente;
         this.dataHora = dataHora;
         this.consultaRealizada = false;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getNomeNutricionista() {
@@ -46,4 +53,5 @@ public class Consulta {
     public void setConsultaRealizada(boolean consultaRealizada) {
         this.consultaRealizada = consultaRealizada;
     }
+
 }

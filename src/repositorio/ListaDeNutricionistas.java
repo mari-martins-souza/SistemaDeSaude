@@ -29,4 +29,13 @@ public class ListaDeNutricionistas {
         nutricionistas.remove(nutricionista);
     }
 
+    public static Nutricionista buscarPorNome(String nome) {
+        for (Nutricionista nutricionista : nutricionistas) {
+            if (nutricionista.getNome().equals(nome)) {
+                return nutricionista;
+            }
+        }
+        return null;
+    }
+
 }

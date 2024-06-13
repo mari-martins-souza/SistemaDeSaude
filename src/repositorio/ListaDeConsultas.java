@@ -14,11 +14,12 @@ public class ListaDeConsultas {
     }
 
     public static Consulta buscarPorId(int id) {
-        if (id >= 0 && id < consultas.size()) {
-            return consultas.get(id);
-        } else {
-            return null;
+        for (Consulta consulta : consultas) {
+            if (consulta.getId() == id) {
+                return consulta;
+            }
         }
+        return null;
     }
 
     public static void adicionar(Consulta consulta) {
